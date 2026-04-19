@@ -15,7 +15,7 @@ jobs:
         run : pip install pytest
 
       - name: Test application
-        run : pytest test.app -v
+        run : pytest test.py -v
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
