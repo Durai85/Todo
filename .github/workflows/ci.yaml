@@ -10,6 +10,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      
+      - name: Install Dependencies
+        run : pip install pytest
+
+      - name: Test application
+        run : pytest test.app -v
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -23,5 +29,3 @@ jobs:
       - name: Push to Docker Hub
         run : docker push ${{secrets.DOCKER_USERNAME}}/todo-app:latest
       
-      - name: Test work application
-        run : pytest test.py -v
