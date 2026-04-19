@@ -22,4 +22,6 @@ jobs:
 
       - name: Push to Docker Hub
         run : docker push ${{secrets.DOCKER_USERNAME}}/todo-app:latest
-
+      
+      - name: Test work application
+        run : pytest test.py -v
